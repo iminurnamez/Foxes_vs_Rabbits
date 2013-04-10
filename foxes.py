@@ -371,7 +371,8 @@ def report(grass_data, rabbit_data, fox_data):
 	grass_text_rect.topleft = (50, SCREENHEIGHT - 50)
 	rabbit_text_rect.topleft = (grass_text_rect.right + 50, SCREENHEIGHT - 50)
 	fox_text_rect.topleft = (rabbit_text_rect.right + 50, SCREENHEIGHT - 50)
-	
+	exit = text24.render("<SPACE> to exit", True, colors.white, colors.black)
+	exit_rect = exit.get_rect(midbottom = (SCREENWIDTH/2, SCREENHEIGHT))
 	mousex = 0
 	mousey = 0
 	point_offset = 0 
@@ -410,8 +411,9 @@ def report(grass_data, rabbit_data, fox_data):
 				point.x -= 5
 			for point in fox_data:
 				point.x -= 5
-			for rect in [grass_text_rect, rabbit_text_rect, fox_text_rect]:
+			for rect in [grass_text_rect, rabbit_text_rect, fox_text_rect, exit_rect]:
 				rect.centerx -= 5
+			
 			point_offset += 5
 		elif mousex < 50:
 			for point in grass_data:
@@ -420,7 +422,7 @@ def report(grass_data, rabbit_data, fox_data):
 				point.x += 5
 			for point in fox_data:
 				point.x += 5
-			for rect in [grass_text_rect, rabbit_text_rect, fox_text_rect]:
+			for rect in [grass_text_rect, rabbit_text_rect, fox_text_rect, exit_rect]:
 				rect.centerx += 5
 			point_offset -= 5	
 		
@@ -431,6 +433,7 @@ def report(grass_data, rabbit_data, fox_data):
 		DISPLAYSURF.blit(grass_text, grass_text_rect)
 		DISPLAYSURF.blit(rabbit_text, rabbit_text_rect)
 		DISPLAYSURF.blit(fox_text, fox_text_rect)
+		DISPLAYSURF.blit(exit, exit_rect)
 		pygame.display.update()
 		fpsClock.tick(FPS)
 	
@@ -441,7 +444,7 @@ def main((rabbit_minimum, fox_minimum)):
 	loop_count = 0
 	current_object = next(current_objects)
 	while True:
-		current_object_text = text16.render("<C>urrent object: %s" % current_object, True, colors.black)
+		current_object_text = text16.render("<C>urrent object: %s     <SPACE> for graph" % current_object, True, colors.black)
 		current_object_Rect = current_object_text.get_rect()
 		current_object_Rect.bottomleft = (0, SCREENHEIGHT)
 		new_rabbits = []

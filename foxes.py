@@ -68,7 +68,7 @@ class Grass(object):
 	def __init__(self):
 		self.maxbelly = 500
 		self.belly = 500
-		self.icon = pygame.image.load("grass.bmp").convert()
+		self.icon = pygame.image.load("grass.png").convert()
 		self.Rect = self.icon.get_rect()
 		self.growth_rate = 2
 	def update(self):
@@ -77,15 +77,15 @@ class Grass(object):
 		if self.belly > self.maxbelly:
 			self.belly = self.maxbelly
 		if self.belly < self.maxbelly * 1/5:
-			self.icon = pygame.image.load("grass.bmp").convert()
+			self.icon = pygame.image.load("grass.png").convert()
 		elif self.belly < self.maxbelly * 2/5:
-			self.icon = pygame.image.load("grass20.bmp").convert()
+			self.icon = pygame.image.load("grass20.png").convert()
 		elif self.belly < self.maxbelly * 3/5:
-			self.icon = pygame.image.load("grass40.bmp").convert()
+			self.icon = pygame.image.load("grass40.png").convert()
 		elif self.belly < self.maxbelly * 4/5:
-			self.icon = pygame.image.load("grass60.bmp").convert()
+			self.icon = pygame.image.load("grass60.png").convert()
 		elif self.belly <= self.maxbelly:
-			self.icon = pygame.image.load("grass80.bmp").convert()
+			self.icon = pygame.image.load("grass80.png").convert()
 		
 		
 		
@@ -242,16 +242,16 @@ def intro():
 		fpsClock.tick(FPS)
 		
 def setup():	
-	grass_uparrow = pygame.image.load("uparrow.bmp").convert()
-	rabbit_uparrow = pygame.image.load("uparrow.bmp").convert()
-	fox_uparrow = pygame.image.load("uparrow.bmp").convert()
-	rabbit_min_uparrow = pygame.image.load("uparrow.bmp").convert()
-	fox_min_uparrow = pygame.image.load("uparrow.bmp").convert()
-	grass_downarrow = pygame.image.load("downarrow.bmp").convert()
-	rabbit_downarrow = pygame.image.load("downarrow.bmp").convert()
-	fox_downarrow = pygame.image.load("downarrow.bmp").convert()
-	rabbit_min_downarrow = pygame.image.load("downarrow.bmp").convert()
-	fox_min_downarrow = pygame.image.load("downarrow.bmp").convert()
+	grass_uparrow = pygame.image.load("uparrow.png").convert()
+	rabbit_uparrow = pygame.image.load("uparrow.png").convert()
+	fox_uparrow = pygame.image.load("uparrow.png").convert()
+	rabbit_min_uparrow = pygame.image.load("uparrow.png").convert()
+	fox_min_uparrow = pygame.image.load("uparrow.png").convert()
+	grass_downarrow = pygame.image.load("downarrow.png").convert()
+	rabbit_downarrow = pygame.image.load("downarrow.png").convert()
+	fox_downarrow = pygame.image.load("downarrow.png").convert()
+	rabbit_min_downarrow = pygame.image.load("downarrow.png").convert()
+	fox_min_downarrow = pygame.image.load("downarrow.png").convert()
 	grass_uparrowRect = grass_uparrow.get_rect()
 	rabbit_uparrowRect = rabbit_uparrow.get_rect()
 	fox_uparrowRect = fox_uparrow.get_rect()

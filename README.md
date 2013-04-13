@@ -11,4 +11,4 @@ A simulation of foxes, rabbits and grass.
 
 ISSUES:
 
-  - Zoomers. Rabbits that move faster than the rest of the rabbits, which should all move at the same rate.
+  - Zoomers. Rabbits that move faster than the rest of the rabbits. They should all move at the same rate.

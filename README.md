@@ -2,11 +2,13 @@ Foxes_vs_Rabbits
 ================
 A simulation of foxes, rabbits and grass. 
 
+- Stay off the grass. Increasing the amount of grass has a significant impact on the number of rabbits and leads to lag.
 
+- The distribution of the grass on the screen is random. To control grass distribution, set starting grasses to 0
+  and place the grass yourself.
 
+- Running the sim with no foxes results in more predictable and repetitive population cycles.
 
-Fox picture adapted from http://commons.wikimedia.org/wiki/File:FoxJumpingDog1.png 
-which is released under the GNU Free Documentation License.
-Attribution: Brandenads at en.wikipedia
+ISSUES:
 
-Everything else I accept full blame for and can be used however you like.
+  - Zoomers. Rabbits that move faster than the rest of the rabbits, which should all move at the same rate.

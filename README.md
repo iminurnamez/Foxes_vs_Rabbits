@@ -1,5 +1,9 @@
 Foxes_vs_Rabbits
 ================
-A simulation of foxes, rabbits and grass.
+A simulation of foxes, rabbits and grass. 
+
+
+
 
 Fox picture cut, pasted and traced from http://commons.wikimedia.org/wiki/File:FoxJumpingDog1.png
+Everything else I accept full blame for.

@@ -5,5 +5,8 @@ A simulation of foxes, rabbits and grass.
 
 
 
-Fox picture cut, pasted and traced from http://commons.wikimedia.org/wiki/File:FoxJumpingDog1.png
+Fox picture adapted from http://commons.wikimedia.org/wiki/File:FoxJumpingDog1.png 
+which is released under
+Attribution: Brandenads at en.wikipedia
+
 Everything else I accept full blame for.

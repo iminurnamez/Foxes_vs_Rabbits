@@ -277,7 +277,8 @@ def setup():
 		grass_downarrowrect = grass_downarrow.get_rect(topleft = (grass_uparrowrect.right + 20, grass_uparrowrect.top))
 		rabbit_downarrowrect = rabbit_downarrow.get_rect(topleft = (rabbit_uparrowrect.right + 20, rabbit_uparrowrect.top))
 		fox_downarrowrect = fox_downarrow.get_rect(topleft = (fox_uparrowrect.right + 20, fox_uparrowrect.top))
-		rabbit_min_downarrowrect = rabbit_min_downarrow.get_rect(topleft = (rabbit_min_uparrowrect.right + 20, rabbit_min_uparrowrect.top))
+		rabbit_min_downarrowrect = rabbit_min_downarrow.get_rect(topleft = (rabbit_min_uparrowrect.right + 20,
+																			rabbit_min_uparrowrect.top))
 		fox_min_downarrowrect = fox_min_downarrow.get_rect(topleft = (fox_min_uparrowrect.right + 20, fox_min_uparrowrect.top))
 		startrect = start.get_rect(center = (SCREENWIDTH/2, fox_min_downarrowrect.bottom + 50))
 		for event in pygame.event.get():
@@ -343,15 +344,15 @@ def seed_world(params):
 	return params[3], params[4], rabbits, foxes, grasses
 
 def report(grass_data, rabbit_data, fox_data):
-	grass_text = text24.render("Grass", True, colors.weirdgreen)
-	rabbit_text = text24.render("Rabbits", True, colors.white)
-	fox_text = text24.render("Foxes", True, colors.orange)
+	grass_text = text24.render("Grass", True, colors.weirdgreen, colors.black)
+	rabbit_text = text24.render("Rabbits", True, colors.white, colors.black)
+	fox_text = text24.render("Foxes", True, colors.orange, colors.black)
 	grass_text_rect = grass_text.get_rect(topleft = (50, SCREENHEIGHT - 100))
 	rabbit_text_rect = rabbit_text.get_rect(topleft = (grass_text_rect.right + 50, grass_text_rect.top))
 	fox_text_rect = fox_text.get_rect(topleft = (rabbit_text_rect.right + 50, grass_text_rect.top))
 	exit = text24.render("<SPACE> to exit", True, colors.white, colors.black)
 	exit_rect = exit.get_rect(midbottom = (SCREENWIDTH/2, SCREENHEIGHT))
-	instruct = text24.render("Use the arrow keys to expand or compress the graph", True, colors.gray, colors.black)
+	instruct = text24.render("Use arrow keys to expand/compress the graph", True, colors.gray, colors.black)
 	instruct_rect = instruct.get_rect(midbottom = (SCREENWIDTH/2, exit_rect.top - 20))
 	mousex = 0
 	mousey = 0
@@ -399,11 +400,14 @@ def report(grass_data, rabbit_data, fox_data):
 			yscale -= .2
 		
 		DISPLAYSURF.fill(colors.black)
-		pygame.draw.lines(DISPLAYSURF, colors.weirdgreen, False, [(point.x * xscale, base - point.y * yscale) for point in grass_data], 5)
-		pygame.draw.lines(DISPLAYSURF, colors.white, False, [(point.x * xscale, base - point.y * yscale) for point in rabbit_data], 5)
-		pygame.draw.lines(DISPLAYSURF, colors.orange, False, [(point.x * xscale, base - point.y * yscale) for point in fox_data], 5)
-		for item in [(grass_text, grass_text_rect),(rabbit_text, rabbit_text_rect),(fox_text, fox_text_rect),
-					(exit, exit_rect), (instruct, instruct_rect)]:
+		pygame.draw.lines(DISPLAYSURF, colors.weirdgreen, False,
+				[(point.x * xscale, base - point.y * yscale) for point in grass_data], 5)
+		pygame.draw.lines(DISPLAYSURF, colors.white, False,
+				[(point.x * xscale, base - point.y * yscale) for point in rabbit_data], 5)
+		pygame.draw.lines(DISPLAYSURF, colors.orange, False,
+				[(point.x * xscale, base - point.y * yscale) for point in fox_data], 5)
+		for item in [(grass_text, grass_text_rect),(rabbit_text, rabbit_text_rect),
+					(fox_text, fox_text_rect),(exit, exit_rect), (instruct, instruct_rect)]:
 			DISPLAYSURF.blit(item[0], item[1])
 		pygame.display.update()
 		fpsClock.tick(FPS)
@@ -418,7 +422,8 @@ def sim((rabbit_minimum, fox_minimum, rabbits, foxes, grasses)):
 	loop_count = 0
 	while True:
 		#start = time.time()
-		current_object_text = text16.render("<C>urrent object: %s     <SPACE> for graph" % current_object, True, colors.black)
+		current_object_text = text16.render("<C>urrent object: %s     <SPACE> for graph" % current_object,
+					True, colors.black)
 		current_object_rect = current_object_text.get_rect(bottomleft = (0, SCREENHEIGHT))
 		new_rabbits = []
 		new_foxes = []

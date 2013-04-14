@@ -1,3 +1,4 @@
+import os
 import sys
 import random
 from random import randint
@@ -67,7 +68,7 @@ class Grass(object):
 	def __init__(self):
 		self.maxbelly = 500
 		self.belly = 500
-		self.icon = pygame.image.load("grass.png").convert()
+		self.icon = pygame.image.load(os.path.join("Art", "grass.png")).convert()
 		self.rect = self.icon.get_rect()
 		self.growth_rate = 2
 	
@@ -77,15 +78,15 @@ class Grass(object):
 		if self.belly > self.maxbelly:
 			self.belly = self.maxbelly
 		if self.belly < self.maxbelly * 1/5:
-			self.icon = pygame.image.load("grass20.png").convert()
+			self.icon = pygame.image.load(os.path.join("Art", "grass20.png")).convert()
 		elif self.belly < self.maxbelly * 2/5:
-			self.icon = pygame.image.load("grass40.png").convert()
+			self.icon = pygame.image.load(os.path.join("Art", "grass40.png")).convert()
 		elif self.belly < self.maxbelly * 3/5:
-			self.icon = pygame.image.load("grass60.png").convert()
+			self.icon = pygame.image.load(os.path.join("Art", "grass60.png")).convert()
 		elif self.belly < self.maxbelly * 4/5:
-			self.icon = pygame.image.load("grass80.png").convert()
+			self.icon = pygame.image.load(os.path.join("Art", "grass80.png")).convert()
 		else:
-			self.icon = pygame.image.load("grass.png").convert()
+			self.icon = pygame.image.load(os.path.join("Art", "grass.png")).convert()
 		
 		
 		
@@ -97,7 +98,7 @@ class Rabbit(Animal):
 		self.belly = 800
 		self.appetite = 1
 		self.speed = 3
-		self.icon = pygame.image.load("rabbitleft.png").convert()
+		self.icon = pygame.image.load(os.path.join("Art", "rabbitleft.png")).convert()
 		self.rect = self.icon.get_rect()
 		self.eating = False	
 		self.direction = random.choice(self.directions)
@@ -151,7 +152,7 @@ class Rabbit(Animal):
 		return self.is_fertile() and (not self.eating and self.belly > self.maxbelly * 4/5)
 			
 	def pick_image(self):
-		self.icon = pygame.image.load("rabbit" + self.direction + ".png").convert()
+		self.icon = pygame.image.load(os.path.join("Art", "rabbit" + self.direction + ".png")).convert()
 		
 class Fox(Animal):
 	directions = ["up", "down", "left", "right"]
@@ -161,7 +162,7 @@ class Fox(Animal):
 		self.belly = 800
 		self.appetite = 2
 		self.speed = 4
-		self.icon = pygame.image.load("foxleft.png").convert()
+		self.icon = pygame.image.load(os.path.join("Art", "foxleft.png")).convert()
 		self.rect = self.icon.get_rect()
 		self.eating = False	
 		self.direction = random.choice(self.directions)
@@ -209,7 +210,7 @@ class Fox(Animal):
 		return self.is_fertile() and (not self.eating and self.belly > self.maxbelly * 4/5)
 				
 	def pick_image(self):
-		self.icon = pygame.image.load("fox" + self.direction + ".png").convert()
+		self.icon = pygame.image.load(os.path.join("Art", "fox" + self.direction + ".png")).convert()
 
 def intro():
 	title = text32.render("Foxes vs. Rabbits", True, colors.blue)
@@ -241,16 +242,16 @@ def intro():
 		fpsClock.tick(FPS)
 		
 def setup():	
-	grass_uparrow = pygame.image.load("uparrow.png").convert()
-	rabbit_uparrow = pygame.image.load("uparrow.png").convert()
-	fox_uparrow = pygame.image.load("uparrow.png").convert()
-	rabbit_min_uparrow = pygame.image.load("uparrow.png").convert()
-	fox_min_uparrow = pygame.image.load("uparrow.png").convert()
-	grass_downarrow = pygame.image.load("downarrow.png").convert()
-	rabbit_downarrow = pygame.image.load("downarrow.png").convert()
-	fox_downarrow = pygame.image.load("downarrow.png").convert()
-	rabbit_min_downarrow = pygame.image.load("downarrow.png").convert()
-	fox_min_downarrow = pygame.image.load("downarrow.png").convert()
+	grass_uparrow = pygame.image.load(os.path.join("Art", "uparrow.png")).convert()
+	rabbit_uparrow = pygame.image.load(os.path.join("Art", "uparrow.png")).convert()
+	fox_uparrow = pygame.image.load(os.path.join("Art", "uparrow.png")).convert()
+	rabbit_min_uparrow = pygame.image.load(os.path.join("Art", "uparrow.png")).convert()
+	fox_min_uparrow = pygame.image.load(os.path.join("Art", "uparrow.png")).convert()
+	grass_downarrow = pygame.image.load(os.path.join("Art", "downarrow.png")).convert()
+	rabbit_downarrow = pygame.image.load(os.path.join("Art", "downarrow.png")).convert()
+	fox_downarrow = pygame.image.load(os.path.join("Art", "downarrow.png")).convert()
+	rabbit_min_downarrow = pygame.image.load(os.path.join("Art", "downarrow.png")).convert()
+	fox_min_downarrow = pygame.image.load(os.path.join("Art", "downarrow.png")).convert()
 	start = text32.render("Start", True, colors.blue, colors.gray)
 	
 	starting_grasses = 6

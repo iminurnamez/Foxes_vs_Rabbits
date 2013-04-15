@@ -462,7 +462,7 @@ def sim((rabbit_minimum, fox_minimum, rabbits, foxes, grasses)):
 				new_rabbit.rect.center = (rabbit.rect.centerx, rabbit.rect.centery - rabbit.rect.height)
 				new_rabbits.append(new_rabbit)
 		for rabbit in new_rabbits:
-			rabbits.append(new_rabbit)
+			rabbits.append(rabbit)
 		new_rabbits = []
 
 		for fox in foxes:

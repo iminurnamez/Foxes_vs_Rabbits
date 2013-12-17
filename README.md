@@ -9,6 +9,3 @@ A simulation of foxes, rabbits and grass.
 
 - Running the sim with no foxes results in more predictable and repetitive population cycles.
 
-ISSUES:
-
-  - Zoomers. Rabbits that move faster than the rest of the rabbits. They should all move at the same rate.
